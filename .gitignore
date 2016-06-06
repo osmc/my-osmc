@@ -3,3 +3,4 @@
 *.o*
 *.so*
 myosmc.py*
+.*project
