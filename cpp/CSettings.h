@@ -19,7 +19,9 @@ typedef struct db_operation
 #define DATATYPE_BOOL 2
 #define DATATYPE_STRING 3
 
-#define MYOSMC_SETTINGS_DB_PATH "/home/osmc/.myosmc/userdata/osmc_settings.db"
+//#define MYOSMC_SETTINGS_DB_DIR "/home/osmc/.myosmc/userdata/"
+#define MYOSMC_SETTINGS_DB_DIR "/home/sam/"
+#define OSMC_DB_NAME "settings.db"
 
 class CSettings
 {
@@ -34,10 +36,31 @@ public:
     //static char[] getSettingList();
 
 private:
+    void oneshotDBOperation(char *stmt);
     static bool checkDB();
  /*   static bool createDatabase();
     static bool doesDatabaseExist();
     static (void *) executeQuery();*/
+};
+
+/* An exception for when CSettingsSQLite does not behave as expected */
+
+class OSMCSettingsSQLiteException
+{
+public:
+
+	OSMCUtilsException(const std::string& what) { this->eMsg = (std::string(what)); }
+	OSMCUtilsException(const std::string &what, const char *sql_statement) {
+		this->eMsg = (std::string(what));
+		this->eSQLStatement = (std::string(sql_statement));
+	}
+	const char * what() const throw() { return eMsg.c_str(); }
+	bool hasSQL() { return eSQLStatement != null); }
+	}
+private:
+	std::string eMsg;
+	std::string eSQLStatement;
+	std::string eSQLiteError;
 };
 
 #endif // CSETTINGS_H

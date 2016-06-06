@@ -178,26 +178,26 @@ def CUtils_isPC():
     return _myosmc.CUtils_isPC()
 CUtils_isPC = _myosmc.CUtils_isPC
 
-class NoOSPropertyException(_object):
+class OSMCUtilsException(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, NoOSPropertyException, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OSMCUtilsException, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, NoOSPropertyException, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, OSMCUtilsException, name)
     __repr__ = _swig_repr
 
     def __init__(self, what):
-        this = _myosmc.new_NoOSPropertyException(what)
+        this = _myosmc.new_OSMCUtilsException(what)
         try:
             self.this.append(this)
         except Exception:
             self.this = this
 
     def what(self):
-        return _myosmc.NoOSPropertyException_what(self)
-    __swig_destroy__ = _myosmc.delete_NoOSPropertyException
+        return _myosmc.OSMCUtilsException_what(self)
+    __swig_destroy__ = _myosmc.delete_OSMCUtilsException
     __del__ = lambda self: None
-NoOSPropertyException_swigregister = _myosmc.NoOSPropertyException_swigregister
-NoOSPropertyException_swigregister(NoOSPropertyException)
+OSMCUtilsException_swigregister = _myosmc.OSMCUtilsException_swigregister
+OSMCUtilsException_swigregister(OSMCUtilsException)
 
 class db_operation(_object):
     __swig_setmethods__ = {}

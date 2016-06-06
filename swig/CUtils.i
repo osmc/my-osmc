@@ -2,27 +2,27 @@
 
 %{
 #define SWIG_FILE_WITH_INIT
-static PyObject* m_NoOSPropertyException;
+static PyObject* m_OSMCUtilsException;
 #include "CUtils.h"
 %}
 
 
 %init %{
-    m_NoOSPropertyException = PyErr_NewException("_myosmc.NoOSPropertyException", NULL, NULL);
-    Py_INCREF(m_NoOSPropertyException);
-    PyModule_AddObject(m, "NoOSPropertyException", m_NoOSPropertyException);
+    m_OSMCUtilsException = PyErr_NewException("_myosmc.OSMCUtilsException", NULL, NULL);
+    Py_INCREF(m_OSMCUtilsException);
+    PyModule_AddObject(m, "OSMCUtilsException", m_OSMCUtilsException);
 %}
 
 %exception {
   try {
     $action
-  } catch (NoOSPropertyException &_e) {
+  } catch (OSMCUtilsException &_e) {
     SWIG_Python_Raise(SWIG_NewPointerObj(
-            (new NoOSPropertyException(static_cast<const NoOSPropertyException& >(_e))),  
-            SWIGTYPE_p_NoOSPropertyException,SWIG_POINTER_OWN),
-        "NoOSPropertyException", SWIGTYPE_p_NoOSPropertyException); 
+            (new OSMCUtilsException(static_cast<const OSMCUtilsException& >(_e))),
+            SWIGTYPE_p_OSMCUtilsException,SWIG_POINTER_OWN),
+        "OSMCUtilsException", SWIGTYPE_p_OSMCUtilsException);
     SWIG_fail;
-  } 
+  }
 }
 
 %include "CUtils.h"

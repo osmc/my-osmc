@@ -38,10 +38,10 @@ string CUtils::getOSProperty(string property)
 		}
 		releaseFile.close();
 		if (! foundLine)
-			throw NoOSPropertyException("Could not find the property " + property + " in /etc/os-release");
+			throw OSMCUtilsException("Could not find the property " + property + " in /etc/os-release");
 	}
 	else
-		throw NoOSPropertyException("Could not open /etc/os-release");
+		throw OSMCUtilsException("Could not open /etc/os-release");
 }
 
 /* Returns the value of a /proc/cmdline property, e.g. osmcdev */
@@ -79,10 +79,10 @@ string CUtils::getBootOption(string property)
 			}
 		}
 		/* If we are here, we have not found a matching property */
-		throw NoBootOptionException("Could not find the property" + property + " in /proc/cmdline");
+		throw OSMCUtilsException("Could not find the property" + property + " in /proc/cmdline");
 	}
 	else
-		throw NoBootOptionException("Could not open /proc/cmdline");
+		throw OSMCUtilsException("Could not open /proc/cmdline");
 }
 
 /* Returns the short version string of OSMC,
@@ -117,7 +117,7 @@ int CUtils::getOSMCDevice()
 	if (deviceVersion == "vero2")
 		return DEV_ID_VERO2;
 	/* If we are here, we did get a boot option, but this version of My OSMC does not recognise the device */
-	throw UnknownDeviceException("Could not identify the device OSMC is running on. Is My OSMC up to date?");
+	throw OSMCUtilsException("Could not identify the device OSMC is running on. Is My OSMC up to date?");
 }
 
 /* Returns true if My OSMC is being invoked on a Vero device */

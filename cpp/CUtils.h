@@ -37,13 +37,13 @@ private:
     static std::string getBootOption(std::string property);
 };
 
-/* An exception when CUtils::getOSProperty is unable to retrieve the desired property */
+/* An exception for when CUtils does not behave as expected */
 
-class NoOSPropertyException
+class OSMCUtilsException
 {
 public:
 
-	NoOSPropertyException(const std::string& what) { this->eMsg = (std::string(what)); }
+	OSMCUtilsException(const std::string& what) { this->eMsg = (std::string(what)); }
 	const char * what() const throw() { return eMsg.c_str(); }
 private:
 	std::string eMsg;
