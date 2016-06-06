@@ -2,3 +2,4 @@
 *_wrap*
 *.o*
 *.so*
+myosmc.py*
