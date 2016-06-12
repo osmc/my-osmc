@@ -10,6 +10,7 @@ all: $(SONAME)
 $(SONAME) : $(OBJFILES)
 	g++ -fPIC -c $(WRAPPER:%.o=%.cxx) -I/usr/include/python$(PYVER) -o ${WRAPPER} -fPIC
 	g++ -shared ${WRAPPER} $^ -o $@ -lsqlite3
+	strip ${SONAME}
 
 %.o: %.cpp
 	g++ -c $^ -I/usr/include/python$(PYVER) -fPIC
