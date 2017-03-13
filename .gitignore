@@ -1,0 +1,6 @@
+*_wrap*
+*_wrap*
+*.o*
+*.so*
+myosmc.py*
+.*project
