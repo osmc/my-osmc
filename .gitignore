@@ -4,3 +4,4 @@
 *.so*
 myosmc.py*
 .*project
+.settings
